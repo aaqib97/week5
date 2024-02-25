@@ -1,0 +1,8 @@
+<!--<include>
+<extension name="6778_xml">
+<condition field="destination_number" expression="^6778$">
+<action application="answer"/>
+<action application="voicemail" data="default $${domain} 6778"/>
+</condition>
+</extension>
+</include>-->

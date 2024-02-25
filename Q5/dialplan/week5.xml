@@ -1,0 +1,52 @@
+<include>
+ <context name="week5">
+ 	<extension name="Q5CallCenter">
+ 		<condition field="destination_number" expression="^9512452$">
+			<action application="lua" data="p9512452.lua"/>
+   		</condition>
+  	</extension>
+  
+  	<extension name="Q6">
+   		<condition field="destination_number" expression="^112233$">
+			<action application="export" data="nolocal:api_on_answer=set uuid=${callcenter_config(agent get uuid 91002@default)}"/>
+			<action application="export" data="execute_on_answer=execute_extension answer_${uuid} XML week5"/>
+			<!--action application="set" data="execute_on_answer=log INFO *******yyyy**********"/-->
+			<action application="callcenter" data="FS@Ecosmob-EMPID"/>
+			
+		</condition>
+  	</extension>
+	<extension name="ex">
+	<condition field="destination_number" expression="^(91002)$">
+	<action application="bridge" data="user/$1@$${domain}" continue="true"/>
+	<action application="log" data="INFO **********HOGAYA*********"/>
+	</condition>
+	</extension>
+	<!--extension name="Q6">
+		<condition field="destination_number" expression="^(.*)$">
+			<action application="log" data="INFO *********tmp*********"/>
+		</condition>
+		<action/>
+	</extension-->
+
+	<extension name="answer_${uuid}">
+		<condition field="destination_number" expression="^(answer_${uuid})$">
+			<action application="execute_extension" data="answer_play_${uuid} XML week5"/>
+		</condition>
+	</extension>
+
+	<extension name="answer_play_${uuid}">
+		<condition field="destination_number" expression="^(answer_play_${uuid})$">
+			<action application="playback" data="voicemail/answer_play_uuid.mp3"/>
+			<action application="execute_extension" data="answer_play_conference.${uuid}"/>
+		</condition>
+	</extension>
+
+	<extension name="answer_play_conference.${uuid}">
+		<condition field="destination_number" expression="^(answer_play_conference.${uuid})$">
+			<action application="conference_set_auto_outcall" data="user/91002@$${domain}"/>
+			<action application="conference" data="$${domain}_${uuid}"/>
+		</condition>
+	</extension>
+
+ </context>
+</include>

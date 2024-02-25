@@ -1,0 +1,32 @@
+<include>
+	<menu name="191919_ivr"
+		greet-long="phrase:p191919_ivr"
+		invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+		exit-sound="say: achha chalta hu"
+		timeout="10000"
+		inter-digit-timeout="2000"
+		tts-engine="flite"
+		tts-voice="kal"
+		confirm-attempts="3"
+		max-failures="3"
+		max-timeouts="3"
+		digit-len="2">
+
+		<entry action="menu-sub" digits="1" param="p191919_sub_ivr"/>
+		<entry action="menu-exec-app" digits="2" param="hangup"/>
+	</menu>
+
+	<menu name="p191919_sub_ivr"
+		greet-long="phrase:p191919_sub_ivr"
+		greet-short=""
+		invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+		exit-sound="voicemail/vm-goodbye.wav"
+		timeout="15000"
+		max-failures="3"
+		max-timeouts="3">
+
+		<entry action="menu-exec-app" digits="1" param="transfer 1000 XML default"/>
+		<entry action="menu-exec-app" digits="2" param="hangup"/>
+	</menu>
+
+</include>

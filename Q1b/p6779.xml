@@ -1,0 +1,8 @@
+<include>
+<extension name="6779_xml">
+<condition field="destination_number" expression="^6779$">
+<action application="answer"/>
+<action application="echo"/>
+</condition>
+</extension>
+</include>

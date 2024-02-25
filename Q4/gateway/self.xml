@@ -1,0 +1,10 @@
+<include>
+	<gateway name="self">
+		<param name ="proxy" value="$${domain}"/>
+		<param name="register" value="true"/>
+		<param name="register-proxy" value="$${domain}"/>
+		<param name="username" value="91001"/>
+		<param name="password" value="aaqib123"/>
+		<param name="ping" value="25"/>
+        </gateway>
+</include>

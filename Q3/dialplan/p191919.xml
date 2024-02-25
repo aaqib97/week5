@@ -1,0 +1,7 @@
+<include>
+	<extension name="IVR_flow">
+		<condition field="destination_number" expression="^191919$">
+			<action application="ivr" data="191919_ivr"/>
+		</condition>
+	</extension>
+</include>

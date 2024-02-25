@@ -1,0 +1,8 @@
+<include>
+<extension>
+<condition field="destination_number" expression="^911111$">
+<action application="lua" data="p911111.lua"/>
+<anti-action application="lua" data="antip911111.lua"/>
+</condition>
+</extension>
+</include>

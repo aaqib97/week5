@@ -1,0 +1,20 @@
+<include>
+	<extension name="checkconfiguration">
+		<condition field="destination_number" expression="^91002$">
+			<action application="bridge" data="sofia/external/self/91002@172.16.18.38"/>
+			<action application="set" data="sip_h_Configuration_Ecosmob=FreeSwitch_Training"/>
+			<action application="set" data="domain_name=$${domain}"/>
+			<action application="log" data="info,nahi ho raha kya?"/>
+			<action application="transfer" data="91002x XML public"/>
+
+		</condition>
+	</extension>
+
+	<extension name="join_conference">
+		<condition field="91002x">
+			<action application="answer"/>
+			<action application="conference" data="originated_from"/>
+
+		</condition>
+	</extension>
+</include>

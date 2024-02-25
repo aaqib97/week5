@@ -1,0 +1,17 @@
+<include>
+<macro name="p191919_ivr">
+<input>
+<match>
+<action function="play-file" data="voicemail/p191919_main.wav"/>
+</match>
+</input>
+</macro>
+
+<macro name="p191919_sub_ivr">
+<input>
+<match>
+<action function="play-file" data="voicemail/p191919_sub_ivr.wav"/>
+</match>
+</input>
+</macro>
+</include>
