@@ -1,10 +1,5 @@
 <include>
  <context name="week5">
- 	<extension name="Q5CallCenter">
- 		<condition field="destination_number" expression="^9512452$">
-			<action application="lua" data="p9512452.lua"/>
-   		</condition>
-  	</extension>
   
   	<extension name="Q6">
    		<condition field="destination_number" expression="^112233$">
